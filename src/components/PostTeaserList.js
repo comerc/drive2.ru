@@ -4,6 +4,8 @@ import { Link } from 'react-router'
 import { createSelector } from 'reselect'
 import BEMHelper from 'react-bem-helper'
 
+import { pure } from '../utils'
+
 import PostTeaser from './PostTeaser'
 
 const bem = BEMHelper('post-teaser-list')
@@ -56,4 +58,4 @@ const mapDispatchToProps = (dispatch) => {
   return {}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostTeaserList)
+export default connect(mapStateToProps, mapDispatchToProps)(pure(PostTeaserList))

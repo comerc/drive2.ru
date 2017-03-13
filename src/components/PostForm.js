@@ -5,12 +5,6 @@ import BEMHelper from 'react-bem-helper'
 
 import { actions as editPostActions } from '../ducks/editPost'
 
-// TODO понимание PureComponent
-// https://www.youtube.com/watch?v=Pc3RKELjB-0
-
-// TODO как сделать PureComponent из функционального компонента?
-// https://github.com/facebook/react/issues/5677#issuecomment-280295107
-
 const TITLE_MAX_LENGTH = 120
 
 const TopicAdd = ({ post: { title }, inputTitle, submit, router: { push } }) => {
@@ -55,4 +49,4 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(editPostActions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TopicAdd)
+export default connect(mapStateToProps, mapDispatchToProps)(pure(TopicAdd))

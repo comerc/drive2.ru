@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 import BEMHelper from 'react-bem-helper'
 
+import { pure } from '../utils'
+
 import PostHeader from './PostHeader'
 import PostBody from './PostBody'
 import PostTags from './PostTags'
@@ -44,4 +46,4 @@ const mapDispatchToProps = (dispatch) => {
   return {}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Post)
+export default connect(mapStateToProps, mapDispatchToProps)(pure(Post))
