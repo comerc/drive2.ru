@@ -10,9 +10,8 @@ const PostHubs = ({ hubs }) => (
   <div {...bem('')}>
     <ul>
       {hubs.map(hub =>
-        <li>
+        <li key={hub.id}>
           <Link
-            key={hub.id}
             to={`/hub/${hub.id}/`}
             title={hub.isSubscribed ? 'Вы подписаны на этот хаб' : 'Вы не подписаны на этот хаб'}
             onClick={ga('hub', 'feed page', hub.name)}

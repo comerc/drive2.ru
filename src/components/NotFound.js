@@ -7,24 +7,20 @@ import logo from '../logo.svg'
 
 const bem = BEMHelper('not-found')
 
-const NotFound = () => {
-  return (
-    <div {...bem('')}>
-      <Helmet
-        defaultTitle="DRIVE2.RU"
-      />
-      <div {...bem('logo')}>
-        <Link to="/" title="На главную страницу"><img alt="logo" src={logo} /></Link>
-      </div>
-
-      <h1>Страница не найдена</h1>
-      <p>Страница устарела, была удалена или не существовала вовсе</p>
-
-      <div {...bem('back')}>
-        <Link to="/">Вернуться на главную</Link>
-      </div>
+const NotFound = () => (
+  <div {...bem('')}>
+    <Helmet
+      defaultTitle="DRIVE2.RU"
+    />
+    <div {...bem('logo')}>
+      <Link to="/" title="На главную страницу"><img alt="logo" src={logo} /></Link>
     </div>
-  )
-}
+    <h1>Страница не найдена</h1>
+    <p>Страница устарела, была удалена или не существовала вовсе</p>
+    <div {...bem('back')}>
+      <Link to="/">Вернуться на главную</Link>
+    </div>
+  </div>
+)
 
 export default NotFound
