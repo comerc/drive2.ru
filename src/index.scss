@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+div#root {
+  padding: 0 56px;
+  display: flex;
+  height: 100vh;
+  overflow: auto;
+}
+
+.not-found {
+  height: 50vh;
+  margin: auto;
+  &__logo {
+    a {
+
+    }
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  &__back {
+
+  }
+}
+
+.app {
+  &__footer {
+    padding-top: 32px;
+  }
+}
+
+.post {
+  &--teaser {
+    margin-top: 32px;
+    .post__footer {
+
+    }
+  }
+  &--total {
+    .post__footer {
+
+    }
+  }
+  &__footer {
+
+  }
+}
+
+.post-header {
+  &__published {
+
+  }
+}
+
+.post-title {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  &__flow {
+
+  }
+  &__link {
+
+  }
+}
+
+.post-hubs {
+  ul {
+    margin: 0;
+  	padding: 4px 0;
+  }
+  li {
+    display: inline;
+    &:after {
+      content: ', '
+    }
+    &:last-child:after {
+      content: ''
+    }
+  }
+  &__hub {
+    &--subscribed {
+
+    }
+  }
+  &__profiled-hub {
+
+  }
+}
+
+.post-body {
+  &--crop {
+
+  }
+  &__content {
+    &--html-format {
+
+    }
+  }
+}
+
+.post-read-more {
+  padding-top: 4px;
+}
+
+.post-tags {
+  ul {
+    margin: 0;
+  	padding: 0;
+  }
+  li {
+    display: inline;
+    &:after {
+      content: ', '
+    }
+    &:last-child:after {
+      content: ''
+    }
+  }
+}
+
+.post-teaser-list {
+  &__flow-list {
+
+  }
+  &__main {
+
+  }
+}
