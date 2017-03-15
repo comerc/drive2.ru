@@ -1,1 +1,9 @@
-# yobr.ru
+# yobr
+
+```
+$ npm update
+```
+
+```
+$ npm start
+```
