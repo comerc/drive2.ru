@@ -5,7 +5,7 @@ const bem = BEMHelper('post-form')
 
 const PostFormSubmit = ({ isLoading }) => (
   <div {...bem('submit')}>
-    <button>Отправить</button>
+    <button disabled={isLoading}>Отправить</button>
   </div>
 )
 

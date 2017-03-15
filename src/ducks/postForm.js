@@ -1,4 +1,5 @@
 import { createAction, createReducer } from 'redux-act'
+import { actions as appActions } from './app'
 
 const NS = '@@postForm/'
 
@@ -10,16 +11,20 @@ export const actions = {
   resetForm: createAction(`${NS}RESET_FORM`),
   fillForm: createAction(`${NS}FILL_FORM`),
   read: id => dispatch => {
-    dispatch(startLoading())
+    dispatch(actions.startLoading())
     // dispatch(actions.fillForm({data}))
-    dispatch(finishLoading())
+    dispatch(actions.finishLoading())
   },
   submit: (event, push) => dispatch => {
     event.preventDefault()
-    dispatch(startLoading())
-    // dispatch(appActions.notify('Сохранено'))
-    // push('/')
-    dispatch(finishLoading())
+    alert('submit')
+    // dispatch(actions.startLoading())
+    // setTimeout(() => {
+    dispatch(appActions.test('Сохранено'))
+    //   dispatch(appActions.notify('Сохранено'))
+    //   dispatch(actions.finishLoading('ошибка'))
+    //   // push('/')
+    // }, 1000)
   },
 }
 
@@ -39,8 +44,10 @@ const initialState = {
 const reducer = createReducer({
   [actions.resetForm]: () => ({...initialState}),
   [actions.fillForm]: (state, data) => ({...state, data}),
-  [actions.input]: (state, { field, value }) =>
-    ({...state, data: {...state.data, [field]: value}}),
+  [actions.input]: (state, { field, value }) => {
+    console.log(state.data)
+    return {...state, data: {...state.data, [field]: value}}
+  },
   [actions.setErrors]: (state, errors) => ({...state, errors}),
   [actions.startLoading]: (state) =>
     ({...state, isLoading: true}),

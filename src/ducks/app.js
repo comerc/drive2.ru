@@ -1,3 +1,11 @@
+import { createAction, createReducer } from 'redux-act'
+
+const NS = '@@app/'
+
+export const actions = {
+  test: createAction(`${NS}TEST`),
+}
+
 const initialState = {
   loading: false,
   error: false,
@@ -16,6 +24,8 @@ const initialState = {
   }
 }
 
-export default (state = initialState, action) => {
-  return state
-}
+const reducer = createReducer({
+  [actions.test]: (state) => ({...state, loading: true}),
+}, initialState)
+
+export default reducer

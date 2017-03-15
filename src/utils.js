@@ -1,19 +1,21 @@
 import React from 'react'
-import memoize from 'lodash.memoize'
+// import memoize from 'lodash.memoize'
 
-export const doInput = memoize((action, field) => (event) => {
+export const doInput = (action, field) => (event) => {
   action({ field, value: event.target.value })
-})
+}
 
-export const doSubmit = memoize((submit, push) => (event) => {
+// TODO почему не работает мемоизация?
+
+export const doSubmit = (submit, push) => (event) => {
   submit(event, push)
-})
+}
 
-export const ga = memoize((eventCategory, eventAction, eventLabel) => () => {
+export const ga = (eventCategory, eventAction, eventLabel) => () => {
   if (typeof window.ga === 'function') {
     window.ga('send', 'event', eventCategory, eventAction, eventLabel)
   }
-})
+}
 
 export const plural = (value, form1, form2, form3) => {
   // TODO реализовать plural
@@ -22,7 +24,7 @@ export const plural = (value, form1, form2, form3) => {
 
 export const urlencode = (s) => {
   // TODO реализовать urlencode
-  return 'dummy'
+  return s
 }
 
 export const formatDateTime = (dateTime) => {

@@ -12,6 +12,9 @@ const bem = BEMHelper('post-teaser-list')
 
 const PostTeaserList = ({ postTeaserList, flows }) => (
   <div {...bem('')}>
+    <div>
+      <Link to="/post/add">Добавить</Link>
+    </div>
     <div {...bem('flow-list')}>
       <ul>
         {Object.keys(flows).map(key =>

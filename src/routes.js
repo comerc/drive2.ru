@@ -3,8 +3,8 @@ import { Route, IndexRoute, Redirect } from 'react-router'
 
 import App from './components/App'
 import NotFound from './components/NotFound'
-// import Post from './components/PostFull'
-// import PostForm from './components/PostForm'
+import Post from './components/Post'
+import PostForm from './components/PostForm'
 import PostTeaserList from './components/PostTeaserList'
 
 export default (
@@ -15,11 +15,12 @@ export default (
         <Route path=":selectedFlow" />
       </Route> */}
       <Redirect from="post" to="/404/" />
-      {/* <Route path="post">
-        <IndexRoute path=":postId" component={Post} />
+      <Route path="post">
         <Route path="add" component={PostForm} title="Новая публикация" />
-        <Route path="edit" component={PostForm} title="Редактирование публикации" />
-      </Route> */}
+        <Route path=":postId" component={Post}>
+          <Route path="edit" component={PostForm} title="Редактирование публикации" />
+        </Route>
+      </Route>
     </Route>
     <Route path="*" component={NotFound} />
   </Route>

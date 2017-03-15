@@ -3,9 +3,15 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import BEMHelper from 'react-bem-helper'
 
-import { doSubmit, pure } from '../utils'
+import { doSubmit } from '../utils'
 
 import { actions as postFormActions } from '../ducks/postForm'
+
+import PostFormFlow from './PostFormFlow'
+import PostFormTitle from './PostFormTitle'
+import PostFormContent from './PostFormContent'
+import PostFormHubs from './PostFormHubs'
+import PostFormSubmit from './PostFormSubmit'
 
 const bem = BEMHelper('post-form')
 
@@ -16,13 +22,13 @@ const PostForm = ({
   errors, isLoading, loadingError, input, submit, router: { push }
 }) => (
   <div {...bem('')}>
-    div#id
+    { console.log('render PostForm') }
     <h2>{!!id ? 'Редактирование публикации' : 'Хочу разместить публикацию'}</h2>
     <form onSubmit={doSubmit(submit, push)}>
-      <PostFormFlow {...{ flow, input, error: errors.flow }} />
+      {/* <PostFormFlow {...{ flow, input, error: errors.flow }} /> */}
       <PostFormTitle {...{ title, input, error: errors.title }} />
       <PostFormContent {...{ content, input, error: errors.content }} />
-      <PostFormHubs {...{ hubs, input, error: errors.hubs }} />
+      {/* <PostFormHubs {...{ hubs, input, error: errors.hubs }} /> */}
       <PostFormSubmit {...{ isLoading }} />
     </form>
     {!!loadingError && <div>{loadingError}</div>}
