@@ -42,8 +42,6 @@ const mapStateToProps = (state, ownProps) => {
   return {...post}
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {}
-}
+const mapDispatchToProps = (dispatch) => ({})
 
 export default connect(mapStateToProps, mapDispatchToProps)(pure(Post))

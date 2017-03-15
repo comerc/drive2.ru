@@ -10,8 +10,8 @@ const App = ({ children }) => {
     <div {...bem('')}>
       <Helmet
         title={title}
-        titleTemplate="%s / DRIVE2.RU"
-        defaultTitle="DRIVE2.RU"
+        titleTemplate="%s / YOBR"
+        defaultTitle="YOBR"
       />
       {children}
       <div {...bem('footer')} />

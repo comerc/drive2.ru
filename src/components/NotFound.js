@@ -10,7 +10,7 @@ const bem = BEMHelper('not-found')
 const NotFound = () => (
   <div {...bem('')}>
     <Helmet
-      defaultTitle="DRIVE2.RU"
+      defaultTitle="YOBR"
     />
     <div {...bem('logo')}>
       <Link to="/" title="На главную страницу"><img alt="logo" src={logo} /></Link>

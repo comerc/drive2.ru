@@ -132,3 +132,31 @@ div#root {
 
   }
 }
+
+.form-field {
+  color: red;
+}
+
+.post-form {
+  &__label {
+
+  }
+  &__error {
+
+  }
+  &__flow {
+    @extend .form-field;
+  }
+  &__title {
+    @extend .form-field;
+  }
+  &__content {
+    @extend .form-field;
+  }
+  &__hubs {
+    @extend .form-field;
+  }
+  &__submit {
+
+  }
+}

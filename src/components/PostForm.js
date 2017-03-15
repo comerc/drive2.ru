@@ -3,50 +3,40 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import BEMHelper from 'react-bem-helper'
 
-import { actions as editPostActions } from '../ducks/editPost'
+import { doSubmit, pure } from '../utils'
 
-const TITLE_MAX_LENGTH = 120
+import { actions as postFormActions } from '../ducks/postForm'
 
-const TopicAdd = ({ post: { title }, inputTitle, submit, router: { push } }) => {
+const bem = BEMHelper('post-form')
 
-  let textareaContent = null
+// TODO можно ли объявить компонент чистым, если в props - router?
 
-  const doSubmit = (event) => {
-    event.preventDefault()
-    submit({ title, content: textareaContent.value })
-    push('/')
-  }
-
-  const doInputTitle = (event) => {
-    inputTitle(event.target.value)
-  }
-
-  return (
-    <div className="post-form">
-      <form onSubmit={doSubmit}>
-        <div>
-          <label><div>Заголовок: {TITLE_MAX_LENGTH - title.length}</div>
-            <input onInput={doInputTitle} name="title" defaultValue={title} maxLength={TITLE_MAX_LENGTH} />
-          </label>
-        </div>
-        <div>
-          <label><div>Текст:</div>
-            <textarea ref={ ref => { textareaContent = ref } } name="content"></textarea>
-          </label>
-        </div>
-        <button>Отправить</button>
-      </form>
-
-    </div>
-  )
-}
+const PostForm = ({
+  data: { id, flow, title, content, hubs },
+  errors, isLoading, loadingError, input, submit, router: { push }
+}) => (
+  <div {...bem('')}>
+    div#id
+    <h2>{!!id ? 'Редактирование публикации' : 'Хочу разместить публикацию'}</h2>
+    <form onSubmit={doSubmit(submit, push)}>
+      <PostFormFlow {...{ flow, input, error: errors.flow }} />
+      <PostFormTitle {...{ title, input, error: errors.title }} />
+      <PostFormContent {...{ content, input, error: errors.content }} />
+      <PostFormHubs {...{ hubs, input, error: errors.hubs }} />
+      <PostFormSubmit {...{ isLoading }} />
+    </form>
+    {!!loadingError && <div>{loadingError}</div>}
+  </div>
+)
 
 const mapStateToProps = (state) => ({
-  post: state.editPost
+  data: state.postForm.data,
+  errors: state.postForm.errors,
+  isLoading: state.postForm.isLoading,
+  loadingError: state.postForm.loadingError
 })
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(editPostActions, dispatch)
-}
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(postFormActions, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(pure(TopicAdd))
+export default connect(mapStateToProps, mapDispatchToProps)(PostForm)
