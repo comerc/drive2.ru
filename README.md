@@ -1,9 +1,9 @@
 # yobr
 
-```
-$ npm update
+```bash
+$ yarn upgrade
 ```
 
-```
-$ npm start
+```bash
+$ yarn start
 ```
