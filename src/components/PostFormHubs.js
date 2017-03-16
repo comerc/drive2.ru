@@ -1,6 +1,8 @@
 import React from 'react'
 import BEMHelper from 'react-bem-helper'
 
+import { pure } from '../utils'
+
 const bem = BEMHelper('post-form')
 
 const PostFormHubs = ({ hubs, input, error }) => (
@@ -11,4 +13,4 @@ const PostFormHubs = ({ hubs, input, error }) => (
   </div>
 )
 
-export default PostFormHubs
+export default pure(PostFormHubs)

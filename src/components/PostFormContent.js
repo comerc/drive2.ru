@@ -7,10 +7,9 @@ const bem = BEMHelper('post-form')
 
 const PostFormContent = ({ content, input, error }) => (
   <div {...bem('content')}>
-    { console.log('render PostFormContent') }
     <label>
       <div {...bem('label')}>Текст:</div>
-      <textarea onInput={doInput(input, 'content')} name="content" defaultValue={content} />
+      <textarea onInput={doInput(input)} name="content" defaultValue={content} />
     </label>
     {!!error && <div {...bem('error')}>{error}</div>}
   </div>

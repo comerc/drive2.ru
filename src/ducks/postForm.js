@@ -1,5 +1,5 @@
 import { createAction, createReducer } from 'redux-act'
-import { actions as appActions } from './app'
+// import { actions as appActions } from './app'
 
 const NS = '@@postForm/'
 
@@ -15,12 +15,10 @@ export const actions = {
     // dispatch(actions.fillForm({data}))
     dispatch(actions.finishLoading())
   },
-  submit: (event, push) => dispatch => {
-    event.preventDefault()
-    alert('submit')
+  submit: (push) => dispatch => {
     // dispatch(actions.startLoading())
     // setTimeout(() => {
-    dispatch(appActions.test('Сохранено'))
+    // dispatch(appActions.test(Math.random()))
     //   dispatch(appActions.notify('Сохранено'))
     //   dispatch(actions.finishLoading('ошибка'))
     //   // push('/')
@@ -44,10 +42,8 @@ const initialState = {
 const reducer = createReducer({
   [actions.resetForm]: () => ({...initialState}),
   [actions.fillForm]: (state, data) => ({...state, data}),
-  [actions.input]: (state, { field, value }) => {
-    console.log(state.data)
-    return {...state, data: {...state.data, [field]: value}}
-  },
+  [actions.input]: (state, { field, value }) =>
+    ({...state, data: {...state.data, [field]: value}}),
   [actions.setErrors]: (state, errors) => ({...state, errors}),
   [actions.startLoading]: (state) =>
     ({...state, isLoading: true}),

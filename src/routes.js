@@ -3,6 +3,7 @@ import { Route, IndexRoute, Redirect } from 'react-router'
 
 import App from './components/App'
 import NotFound from './components/NotFound'
+import Feedback from './components/Feedback'
 import Post from './components/Post'
 import PostForm from './components/PostForm'
 import PostTeaserList from './components/PostTeaserList'
@@ -11,9 +12,9 @@ export default (
   <Route path="/">
     <Route component={App}>
       <IndexRoute component={PostTeaserList} />
-      {/* <Route path="flows" component={PostTeaserList}>
+      <Route path="flows" component={PostTeaserList}>
         <Route path=":selectedFlow" />
-      </Route> */}
+      </Route>
       <Redirect from="post" to="/404/" />
       <Route path="post">
         <Route path="add" component={PostForm} title="Новая публикация" />
@@ -21,6 +22,7 @@ export default (
           <Route path="edit" component={PostForm} title="Редактирование публикации" />
         </Route>
       </Route>
+      <Route path="feedback" component={Feedback} />
     </Route>
     <Route path="*" component={NotFound} />
   </Route>

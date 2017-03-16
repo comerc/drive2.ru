@@ -25,7 +25,7 @@ const initialState = {
 }
 
 const reducer = createReducer({
-  [actions.test]: (state) => ({...state, loading: true}),
+  [actions.test]: (state, loading) => ({...state, loading}),
 }, initialState)
 
 export default reducer

@@ -15,20 +15,22 @@ import PostFormSubmit from './PostFormSubmit'
 
 const bem = BEMHelper('post-form')
 
-// TODO можно ли объявить компонент чистым, если в props - router?
+// Q: можно ли объявить компонент чистым, если в props - router?
+// A: да, PureComponent применяет неглубокое сравнение
+
+// применение defaultValue нарушает работу Redux DevTools TimeTravel
 
 const PostForm = ({
   data: { id, flow, title, content, hubs },
   errors, isLoading, loadingError, input, submit, router: { push }
 }) => (
   <div {...bem('')}>
-    { console.log('render PostForm') }
     <h2>{!!id ? 'Редактирование публикации' : 'Хочу разместить публикацию'}</h2>
-    <form onSubmit={doSubmit(submit, push)}>
-      {/* <PostFormFlow {...{ flow, input, error: errors.flow }} /> */}
+    <form onSubmit={doSubmit(isLoading, submit, push)}>
+      <PostFormFlow {...{ flow, input, error: errors.flow }} />
       <PostFormTitle {...{ title, input, error: errors.title }} />
       <PostFormContent {...{ content, input, error: errors.content }} />
-      {/* <PostFormHubs {...{ hubs, input, error: errors.hubs }} /> */}
+      <PostFormHubs {...{ hubs, input, error: errors.hubs }} />
       <PostFormSubmit {...{ isLoading }} />
     </form>
     {!!loadingError && <div>{loadingError}</div>}

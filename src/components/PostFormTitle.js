@@ -9,11 +9,10 @@ const TITLE_MAX_LENGTH = 120
 
 const PostFormTitle = ({ title, input, error }) => (
   <div {...bem('title')}>
-    { console.log('render PostFormTitle') }
     <label>
       <div {...bem('label')}>Заголовок: {TITLE_MAX_LENGTH - title.length}</div>
       <input
-        onInput={doInput(input, 'title')}
+        onInput={doInput(input)}
         name="title"
         defaultValue={title}
         maxLength={TITLE_MAX_LENGTH}

@@ -1,6 +1,8 @@
 import React from 'react'
 import BEMHelper from 'react-bem-helper'
 
+import { pure } from '../utils'
+
 import PostHeader from './PostHeader'
 import PostBody from './PostBody'
 import PostReadMore from './PostReadMore'
@@ -20,4 +22,4 @@ const PostTeaser = ({ id, published, flow, hubs, title, content, author, viewsCo
   </div>
 )
 
-export default PostTeaser
+export default pure(PostTeaser)

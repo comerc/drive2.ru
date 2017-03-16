@@ -1,6 +1,8 @@
 import React from 'react'
 import BEMHelper from 'react-bem-helper'
 
+import { pure } from '../utils'
+
 const bem = BEMHelper('post-form')
 
 const PostFormFlow = ({ flow, input, error }) => (
@@ -11,4 +13,4 @@ const PostFormFlow = ({ flow, input, error }) => (
   </div>
 )
 
-export default PostFormFlow
+export default pure(PostFormFlow)

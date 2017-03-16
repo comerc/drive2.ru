@@ -1,6 +1,8 @@
 import React from 'react'
 import BEMHelper from 'react-bem-helper'
 
+import { pure } from '../utils'
+
 const bem = BEMHelper('post-form')
 
 const PostFormSubmit = ({ isLoading }) => (
@@ -9,4 +11,4 @@ const PostFormSubmit = ({ isLoading }) => (
   </div>
 )
 
-export default PostFormSubmit
+export default pure(PostFormSubmit)

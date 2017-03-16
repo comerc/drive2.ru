@@ -1,21 +1,22 @@
 import React from 'react'
-// import memoize from 'lodash.memoize'
+import memoize from 'lodash.memoize'
 
-export const doInput = (action, field) => (event) => {
-  action({ field, value: event.target.value })
+export const doInput = (input) => (event) => {
+  input({ field: event.target.name, value: event.target.value })
 }
 
-// TODO почему не работает мемоизация?
-
-export const doSubmit = (submit, push) => (event) => {
-  submit(event, push)
+export const doSubmit = (isLoading, submit, push) => (event) => {
+  event.preventDefault()
+  if (!isLoading) {
+    submit(push)
+  }
 }
 
-export const ga = (eventCategory, eventAction, eventLabel) => () => {
+export const ga = (eventCategory, eventAction, eventLabel) => memoize(() => {
   if (typeof window.ga === 'function') {
     window.ga('send', 'event', eventCategory, eventAction, eventLabel)
   }
-}
+})
 
 export const plural = (value, form1, form2, form3) => {
   // TODO реализовать plural
