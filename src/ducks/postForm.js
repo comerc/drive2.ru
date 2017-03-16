@@ -1,5 +1,5 @@
 import { createAction, createReducer } from 'redux-act'
-import { actions as appActions } from './app'
+// import { actions as appActions } from './app'
 
 const NS = '@@post-form/'
 
