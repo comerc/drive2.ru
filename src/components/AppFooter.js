@@ -1,10 +1,10 @@
 import React from 'react'
 import BEMHelper from 'react-bem-helper'
 
-const bem = BEMHelper('footer')
+const bem = BEMHelper('app-footer')
 
-const Footer = () => (
+const AppFooter = () => (
   <div {...bem('')}></div>
 )
 
-export default Footer
+export default AppFooter

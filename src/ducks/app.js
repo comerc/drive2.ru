@@ -7,6 +7,7 @@ export const actions = {
 }
 
 const initialState = {
+  test: '',
   loading: false,
   error: false,
   currentUser: {
@@ -25,7 +26,7 @@ const initialState = {
 }
 
 const reducer = createReducer({
-  [actions.test]: (state, loading) => ({...state, loading}),
+  [actions.test]: (state, test) => ({...state, test}),
 }, initialState)
 
 export default reducer

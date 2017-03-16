@@ -9,7 +9,7 @@ const PostFormContent = ({ content, input, error }) => (
   <div {...bem('content')}>
     <label>
       <div {...bem('label')}>Текст:</div>
-      <textarea onInput={doInput(input)} name="content" defaultValue={content} />
+      <textarea onInput={doInput(input)} name="content" value={content} />
     </label>
     {!!error && <div {...bem('error')}>{error}</div>}
   </div>

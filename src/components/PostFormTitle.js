@@ -14,7 +14,7 @@ const PostFormTitle = ({ title, input, error }) => (
       <input
         onInput={doInput(input)}
         name="title"
-        defaultValue={title}
+        value={title}
         maxLength={TITLE_MAX_LENGTH}
       />
     </label>

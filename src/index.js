@@ -19,6 +19,8 @@ const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk, lo
 const history = syncHistoryWithStore(browserHistory, store)
 const render = applyRouterMiddleware(useScroll())
 
+// TODO пока react-router-redux & react-router-scroll зависят от react-router v3
+
 // TODO подключить SSR через react-router-redux-middleware
 
 ReactDOM.render(

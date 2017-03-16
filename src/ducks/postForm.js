@@ -1,7 +1,7 @@
 import { createAction, createReducer } from 'redux-act'
-// import { actions as appActions } from './app'
+import { actions as appActions } from './app'
 
-const NS = '@@postForm/'
+const NS = '@@post-form/'
 
 export const actions = {
   input: createAction(`${NS}INPUT`),
@@ -16,13 +16,12 @@ export const actions = {
     dispatch(actions.finishLoading())
   },
   submit: (push) => dispatch => {
-    // dispatch(actions.startLoading())
-    // setTimeout(() => {
-    // dispatch(appActions.test(Math.random()))
-    //   dispatch(appActions.notify('Сохранено'))
-    //   dispatch(actions.finishLoading('ошибка'))
-    //   // push('/')
-    // }, 1000)
+    dispatch(actions.startLoading())
+    setTimeout(() => {
+      // dispatch(appActions.test(Math.random()))
+      dispatch(actions.finishLoading('ошибка'))
+      push('/')
+    }, 1000)
   },
 }
 
