@@ -1,7 +1,7 @@
 # yobr
 
 ```bash
-$ yarn upgrade
+$ yarn install
 ```
 
 ```bash

@@ -12,6 +12,7 @@ const PostTeaserList = ({ postTeaserList, flows }) => (
   <div {...bem('')}>
     <div>
       <Link to="/post/add">Добавить</Link>
+      <span> | </span>
       <Link to="/feedback">Обратная связь</Link>
     </div>
     <div {...bem('flow-list')}>
@@ -31,8 +32,8 @@ const PostTeaserList = ({ postTeaserList, flows }) => (
   </div>
 )
 
-const getSelectedFlow = (state, props) =>
-  props.params.selectedFlow
+const getSelectedFlow = (state, ownProps) =>
+  ownProps.params.selectedFlow
 
 const getPostTeaserList = (state) =>
   state.posts

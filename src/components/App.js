@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import BEMHelper from 'react-bem-helper'
 
-import Footer from './Footer'
+import AppFooter from './AppFooter'
 
 const bem = BEMHelper('app')
 
@@ -20,7 +20,7 @@ const App = ({ children }) => {
         defaultTitle="YOBR"
       />
       {children}
-      <Footer />
+      <AppFooter />
     </div>
   )
 }
