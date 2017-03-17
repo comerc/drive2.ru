@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import Helmet from 'react-helmet'
 import BEMHelper from 'react-bem-helper'
 
-import logo from 'yobr-resources/logo.svg'
+import logo from '../logo.svg'
 
 const bem = BEMHelper('not-found')
 
