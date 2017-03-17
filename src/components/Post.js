@@ -22,23 +22,18 @@ const Post = ({ id, published, flow, hubs, title, author, company, tags, content
   </div>
 )
 
-const getPostId = (state, props) =>
-  parseInt(props.params.postId, 10)
+const getPostId = (state, ownProps) =>
+  parseInt(ownProps.params.postId, 10)
 
 const getPosts = (state) =>
   state.posts
 
-const getPost = createSelector(
+const mapStateToProps = createSelector(
   [getPosts, getPostId],
   (posts, postId) =>
     posts.find(element =>
       element.id === postId)
 )
-
-const mapStateToProps = (state, ownProps) => {
-  const post = getPost(state, ownProps)
-  return {...post}
-}
 
 const mapDispatchToProps = (dispatch) => ({})
 
